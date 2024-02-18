@@ -25,7 +25,12 @@ jobs:
       uses: actions/setup-java@v4
       with:
         java-version: '17'
-        distribution: 'adopt'
+        distribution: 'corretto'
+
+    - name: Print working directory
+      run: |
+        pwd
+        ls -la
         
     - name: Build and Test Eureka Service
       run: |
