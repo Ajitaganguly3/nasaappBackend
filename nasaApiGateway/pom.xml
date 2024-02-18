@@ -83,7 +83,7 @@
 				</configuration> -->
 			</plugin>
 		</plugins>
-		<finalName>/config-server</finalName>
+		<finalName>api-gateway</finalName>
 	</build>
 
 </project>
