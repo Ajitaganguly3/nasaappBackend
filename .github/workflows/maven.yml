@@ -26,47 +26,54 @@ jobs:
       with:
         java-version: '17'
         distribution: 'corretto'
-
-    - name: Print working directory
+        
+    - name: Build and Test Eureka Service
       run: |
         cd nasaAppEurekaService
         ls -la
         chmod +x mvnw
         ./mvnw clean install
-        
-    - name: Build and Test Eureka Service
-      run: |
-        cd nasaappBackend/nasaAppEurekaService
-        ./mvnw clean install
 
     - name: Build and Test Config Server
       run: |
-        cd nasaappBackend/nasaAppConfigServer
+        cd nasaAppConfigServer
+        ls -la
+        chmod +x mvnw
         ./mvnw clean install
 
     - name: Build and Test Api Gateway
       run: |
-        cd nasaappBackend/nasaApiGateway
+        cd nasaApiGateway
+        ls -la
+        chmod +x mvnw
         ./mvnw clean install
         
     - name: Build and Test Registration
       run: |
-        cd nasaappBackend/registration
+        cd registration
+        ls -la
+        chmod +x mvnw
         ./mvnw clean install
 
     - name: Build and Test Login
       run: |
-        cd nasaappBackend/login
+        cd login
+        ls -la
+        chmod +x mvnw
         ./mvnw clean install
 
     - name: Build and Test Apod
       run: |
-        cd nasaappBackend/apod
+        cd apod
+        ls -la
+        chmod +x mvnw
         ./mvnw clean install
 
     - name: Build and Test wishlist
       run: |
-        cd nasaappBackend/wishlist
+        cd wishlist
+        ls -la
+        chmod +x mvnw
         ./mvnw clean install
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
