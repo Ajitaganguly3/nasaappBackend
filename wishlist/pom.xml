@@ -157,6 +157,7 @@
 				</executions>
 			</plugin>
 		</plugins>
+		<finalName>wishlist</finalName>
 	</build>
 
 </project>
