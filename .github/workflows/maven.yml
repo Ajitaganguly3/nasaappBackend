@@ -51,7 +51,7 @@ jobs:
 
     - name: Build and Start Dependent Microservices
       run: |
-        cd nasaAppBackend
+        
         # Build and start apiGateway microservice
         cd nasaApiGateway
         chmod +x mvnw
