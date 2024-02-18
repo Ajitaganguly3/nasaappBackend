@@ -1,0 +1,17 @@
+image: maven:3.8-openjdk-17
+stages:
+  - test
+  - build
+cache:
+  key: maven3
+  paths:
+    - .m2/repository
+maven-test:
+  stage: test
+  script: "mvn clean test"
+maven-package:
+  stage: build
+  script: "mvn package -DskipTests"
+  artifacts:
+    paths:
+      - ./target/*.jar
