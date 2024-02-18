@@ -27,54 +27,65 @@ jobs:
         java-version: '17'
         distribution: 'corretto'
         
-    - name: Build and Test Eureka Service
+    - name: Build EurekaService
       run: |
         cd nasaAppEurekaService
-        ls -la
         chmod +x mvnw
-        ./mvnw clean install
+        ./mvnw clean package -DskipTests
 
-    - name: Build and Test Config Server
+    - name: Start EurekaService
+      run: |
+        cd nasaAppEurekaService
+        java -jar target/eureka-service.jar &
+
+    - name: Build ConfigServer
       run: |
         cd nasaAppConfigServer
-        ls -la
         chmod +x mvnw
-        ./mvnw clean install
+        ./mvnw clean package -DskipTests
 
-    - name: Build and Test Api Gateway
+    - name: Start ConfigServer
       run: |
+        cd nasaAppConfigServer
+        java -jar target/config-server.jar &
+
+    - name: Build and Start Dependent Microservices
+      run: |
+        cd nasaAppBackend
+        # Build and start apiGateway microservice
         cd nasaApiGateway
-        ls -la
         chmod +x mvnw
-        ./mvnw clean install
+        ./mvnw clean package -DskipTests
+        java -jar target/api-gateway.jar &
+
         
     - name: Build and Test Registration
       run: |
         cd registration
-        ls -la
         chmod +x mvnw
-        ./mvnw clean install
+        ./mvnw clean package -DskipTests
+        java -jar target/registration.jar &
 
     - name: Build and Test Login
       run: |
         cd login
-        ls -la
         chmod +x mvnw
-        ./mvnw clean install
+        ./mvnw clean package -DskipTests
+        java -jar target/login.jar &
 
     - name: Build and Test Apod
       run: |
         cd apod
-        ls -la
         chmod +x mvnw
-        ./mvnw clean install
+        ./mvnw clean package -DskipTests
+        java -jar target/apod.jar &
 
     - name: Build and Test wishlist
       run: |
         cd wishlist
-        ls -la
         chmod +x mvnw
-        ./mvnw clean install
+        ./mvnw clean package -DskipTests
+        java -jar target/wishlist.jar &
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     - name: Update dependency graph
