@@ -29,37 +29,37 @@ jobs:
         cache: maven
     - name: Build and Test Eureka Service
       run: |
-        cd nasaAppEurekaService
+        cd nasaappBackend/nasaAppEurekaService
         ./mvnw clean install
 
     - name: Build and Test Config Server
       run: |
-        cd nasaAppConfigServer
+        cd nasaappBackend/nasaAppConfigServer
         ./mvnw clean install
 
     - name: Build and Test Api Gateway
       run: |
-        cd nasaApiGateway
+        cd nasaappBackend/nasaApiGateway
         ./mvnw clean install
         
     - name: Build and Test Registration
       run: |
-        cd registration
+        cd nasaappBackend/registration
         ./mvnw clean install
 
     - name: Build and Test Login
       run: |
-        cd login
+        cd nasaappBackend/login
         ./mvnw clean install
 
     - name: Build and Test Apod
       run: |
-        cd apod
+        cd nasaappBackend/apod
         ./mvnw clean install
 
     - name: Build and Test wishlist
       run: |
-        cd wishlist
+        cd nasaappBackend/wishlist
         ./mvnw clean install
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
