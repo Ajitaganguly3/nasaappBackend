@@ -178,6 +178,7 @@
 				</executions>
 			</plugin>
 		</plugins>
+		<finalName>loginr</finalName>
 	</build>
 
 </project>
