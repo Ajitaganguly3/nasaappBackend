@@ -138,6 +138,7 @@
 				</executions>
 			</plugin>
 		</plugins>
+		<finalName>apod</finalName>
 	</build>
 
 </project>
